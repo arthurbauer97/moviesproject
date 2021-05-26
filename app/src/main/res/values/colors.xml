@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color">#191926</color>
+    <color name="secondary_color">#191930</color>
+    <color name="purple_700">#191926</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#191926</color>
+    <color name="background_cards">#565665</color>
+    <color name="pink_gender_movie">#FF3466</color>
+    <color name="grey_review_movie">#6D6D80</color>
+    <color name="purple_200">#ffffff</color>
+</resources>
