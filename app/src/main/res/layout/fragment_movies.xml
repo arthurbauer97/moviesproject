@@ -10,7 +10,6 @@
     android:padding="20dp"
     tools:context=".MoviesFragment">
 
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/primary_color">
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/textView3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -51,7 +50,7 @@
                             tools:itemCount="5"
                             tools:listitem="@layout/item_movie" />
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -75,7 +74,7 @@
                             tools:itemCount="5"
                             tools:listitem="@layout/item_movie" />
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/textView5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -98,7 +97,7 @@
                             tools:itemCount="5"
                             tools:listitem="@layout/item_movie" />
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/textView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

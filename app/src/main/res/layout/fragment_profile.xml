@@ -9,8 +9,7 @@
     android:background="@color/black"
     tools:context=".MoviesFragment">
 
-
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

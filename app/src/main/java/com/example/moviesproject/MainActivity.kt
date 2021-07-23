@@ -2,55 +2,28 @@ package com.example.moviesproject
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.moviesproject.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
 class MainActivity : AppCompatActivity(){
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_container) as NavHostFragment
+
+        navController = navHostFragment.navController
+
+        // Setup the bottom navigation view with navController
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNavigationView.setupWithNavController(navController)
     }
-
-    override fun onResume() {
-        super.onResume()
-
-        binding.bottomNavigation.setOnItemSelectedListener  { item ->
-            when(item.itemId) {
-                R.id.home -> {
-                    val homeFragment: HomeFragment = HomeFragment()
-                    openFragment(homeFragment)
-                    true
-                }
-                R.id.movies -> {
-                    val moviesFragment: MoviesFragment = MoviesFragment()
-                    openFragment(moviesFragment)
-                    true
-                }
-                R.id.profile -> {
-                    val profileFragment: ProfileFragment = ProfileFragment()
-                    openFragment(profileFragment)
-                    true
-                }
-                else -> {
-                    false
-                }
-            }
-        }
-    }
-
-    private fun openFragment(fragment: Fragment) {
-        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        transaction.replace(binding.container.id, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
 }
