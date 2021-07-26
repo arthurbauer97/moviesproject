@@ -10,8 +10,8 @@
 
 ##### Android Jetpack
 ```
-* [Material Design] - Biblioteca utilizada para o layout utilizando o Guia do Material Design.
-* [Navigation] - Biblioteca utilizada para navegação.
+[Material Design] - Biblioteca utilizada para o layout utilizando o Guia do Material Design.
+[Navigation] - Biblioteca utilizada para navegação.
 ```
 
 ## Imagens
