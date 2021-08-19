@@ -10,8 +10,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_movie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="166dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toTopOf="@+id/tv_name_movie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,8 +20,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_shadow"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="166dp"
+        android:layout_height="248dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_teste"
         app:layout_constraintBottom_toBottomOf="@+id/iv_movie"
@@ -62,8 +62,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/movies_round"
         android:padding="0dp"
         app:layout_constraintStart_toStartOf="parent"

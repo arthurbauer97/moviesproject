@@ -1,10 +1,13 @@
-package com.example.moviesproject
+package com.example.moviesproject.ui.movies
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.moviesproject.R
+import com.example.moviesproject.domain.model.Movie
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MoviesAdapter(
@@ -20,14 +23,16 @@ class MoviesAdapter(
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-      val movie = movies[position]
+        val movie = movies[position]
 
-        viewHolder.nameMovie.text = movie.name
-        viewHolder.timeMovie.text = movie.time
-        viewHolder.minAgeMovie.text = movie.minAge
-        viewHolder.genderMovie.text = movie.gender
-        viewHolder.reviewMovie.text = movie.reviews
-        viewHolder.imageMovie.setImageDrawable(movie.image)
+        viewHolder.nameMovie.text = movie.title
+        //viewHolder.timeMovie.text = movie
+        //viewHolder.minAgeMovie.text = movie.minAge
+        // viewHolder.genderMovie.text = movie.gender
+        viewHolder.reviewMovie.text = movie.vote_count.toString()
+
+        var movieUrl = "https://themoviedb.org/t/p/w300_and_h450_bestv2/" + movie.poster_path
+        Glide.with(context).load(movieUrl).into(viewHolder.imageMovie);
     }
 
     override fun getItemCount() = movies.size
