@@ -1,6 +1,6 @@
 package com.example.moviesproject.domain.model
 
-data class ListMovieResponse(
+data class BaseResponse<T>(
     var page : Int,
-    var results : List<Movie>,
+    var results : List<T>,
 )

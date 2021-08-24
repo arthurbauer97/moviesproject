@@ -1,6 +1,6 @@
 package com.example.moviesproject.remote
 
-import com.example.moviesproject.data.MoviesDataSource
+import com.example.moviesproject.data.MoviesDataService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 class ClientService {
 
-    fun configureServiceMovies(): MoviesDataSource {
+    fun configureServiceMovies(): MoviesDataService {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
 
@@ -27,6 +27,6 @@ class ClientService {
             .client(client)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .build()
-            .create(MoviesDataSource::class.java)
+            .create(MoviesDataService::class.java)
     }
 }

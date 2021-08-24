@@ -7,7 +7,9 @@
     android:background="@color/primary_color"
     android:gravity="center"
     android:orientation="horizontal"
-    android:padding="20dp"
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
     tools:context=".ui.movies.MoviesFragment">
 
         <androidx.core.widget.NestedScrollView

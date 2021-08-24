@@ -36,35 +36,40 @@ class MoviesFragment : Fragment() {
         binding.clMovies.visibility = View.GONE
         binding.pbMovies.visibility = View.VISIBLE
 
+        viewModel.getGeneres()
         viewModel.getMovies()
+
     }
 
     private fun observerVMEvents() {
         viewModel.movies.observe(viewLifecycleOwner) { movies ->
-            val adapter1 = MoviesAdapter(movies)
-            val adapter2 = MoviesAdapter(movies)
-            val adapter3 = MoviesAdapter(movies)
-            val adapter4 = MoviesAdapter(movies)
+            viewModel.genres.observe(viewLifecycleOwner){ genres ->
+                val adapter1 = MoviesAdapter(movies,genres)
+                val adapter2 = MoviesAdapter(movies,genres)
+                val adapter3 = MoviesAdapter(movies,genres)
+                val adapter4 = MoviesAdapter(movies,genres)
 
-            binding.rvMovies1.adapter = adapter1
-            binding.rvMovies2.adapter = adapter2
-            binding.rvMovies3.adapter = adapter3
-            binding.rvMovies4.adapter = adapter4
+                binding.rvMovies1.adapter = adapter1
+                binding.rvMovies2.adapter = adapter2
+                binding.rvMovies3.adapter = adapter3
+                binding.rvMovies4.adapter = adapter4
 
-            binding.rvMovies1.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                binding.rvMovies1.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-            binding.rvMovies2.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                binding.rvMovies2.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-            binding.rvMovies3.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                binding.rvMovies3.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-            binding.rvMovies4.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                binding.rvMovies4.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-            binding.clMovies.visibility = View.VISIBLE
-            binding.pbMovies.visibility = View.GONE
+                binding.clMovies.visibility = View.VISIBLE
+                binding.pbMovies.visibility = View.GONE
+
+            }
         }
     }
 }

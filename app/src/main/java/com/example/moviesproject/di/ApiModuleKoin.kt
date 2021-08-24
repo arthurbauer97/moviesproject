@@ -1,7 +1,7 @@
 package com.example.moviesproject.di
 
 import com.example.moviesproject.remote.ClientService
-import com.example.moviesproject.data.MoviesDataSource
+import com.example.moviesproject.data.MoviesDataService
 import com.example.moviesproject.data.MoviesRepository
 import com.example.moviesproject.domain.usecase.GetMoviesUseCase
 import com.example.moviesproject.domain.usecase.GetMoviesUseCaseImpl
@@ -13,7 +13,7 @@ object ApiModuleKoin {
 
     //service
     private val serviceModule = module {
-        single<MoviesDataSource> {
+        single<MoviesDataService> {
             ClientService().configureServiceMovies()
         }
     }
