@@ -16,6 +16,22 @@ class GetMoviesUseCaseImpl(
         }
     }
 
+    override suspend fun getMoviesUpcoming(): List<Movie> {
+        return try {
+            repository.getMoviesUpcoming()
+        } catch (e: Exception) {
+            throw e
+        }
+    }
+
+    override suspend fun getMoviesTopRated(): List<Movie> {
+        return try {
+            repository.getMoviesTopRated()
+        } catch (e: Exception) {
+            throw e
+        }
+    }
+
     override suspend fun getGenres(): List<Genre> {
         return try {
             repository.getGenres()

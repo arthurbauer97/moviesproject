@@ -9,5 +9,9 @@ class MoviesRepository(
 
     suspend fun getMovies(): List<Movie> = dataSource.getPopularMovies().results
 
+    suspend fun getMoviesUpcoming(): List<Movie> = dataSource.getUpcomingMovies().results
+
+    suspend fun getMoviesTopRated(): List<Movie> = dataSource.getTopRatedMovies().results
+
     suspend fun getGenres(): List<Genre> = dataSource.getGenreMovies().genres
 }

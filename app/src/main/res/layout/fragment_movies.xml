@@ -80,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/khula_bold"
-                            android:text="Near You"
+                            android:text="Upcoming"
                             android:textColor="@color/white"
                             android:textSize="34sp"
                             android:visibility="visible"
@@ -106,6 +106,7 @@
                             android:text="Premieres"
                             android:textColor="@color/white"
                             android:textSize="34sp"
+                            android:visibility="gone"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/rv_movies3" />
 
@@ -114,6 +115,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/textView2"

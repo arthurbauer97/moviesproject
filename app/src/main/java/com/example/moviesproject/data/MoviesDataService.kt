@@ -9,8 +9,16 @@ import retrofit2.http.GET
 interface MoviesDataService {
     @GET("movie/popular")
     suspend fun getPopularMovies(
-//        @Query("page") limit : Int
     ): BaseResponse<Movie>
+
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovies(
+    ): BaseResponse<Movie>
+
+    @GET("movie/upcoming")
+    suspend fun getUpcomingMovies(
+    ): BaseResponse<Movie>
+
 
     @GET("genre/movie/list")
     suspend fun getGenreMovies(

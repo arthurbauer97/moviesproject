@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesproject.databinding.FragmentMoviesBinding
+import com.example.moviesproject.domain.model.Genre
 import com.example.moviesproject.domain.model.Movie
 import kotlinx.android.synthetic.main.fragment_movies.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,38 +39,44 @@ class MoviesFragment : Fragment() {
 
         viewModel.getGeneres()
         viewModel.getMovies()
+        viewModel.getMoviesUpcoming()
+        viewModel.getMoviesTopRated()
 
     }
 
     private fun observerVMEvents() {
+
+        var genres = listOf<Genre>()
+
+        viewModel.genres.observe(viewLifecycleOwner) {
+            genres = it
+        }
+
         viewModel.movies.observe(viewLifecycleOwner) { movies ->
-            viewModel.genres.observe(viewLifecycleOwner){ genres ->
-                val adapter1 = MoviesAdapter(movies,genres)
-                val adapter2 = MoviesAdapter(movies,genres)
-                val adapter3 = MoviesAdapter(movies,genres)
-                val adapter4 = MoviesAdapter(movies,genres)
+            val adapter1 = MoviesAdapter(movies,genres)
+            binding.rvMovies1.adapter = adapter1
 
-                binding.rvMovies1.adapter = adapter1
-                binding.rvMovies2.adapter = adapter2
-                binding.rvMovies3.adapter = adapter3
-                binding.rvMovies4.adapter = adapter4
+            binding.rvMovies1.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
 
-                binding.rvMovies1.layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        viewModel.moviesTopRated.observe(viewLifecycleOwner) { moviesTopRated ->
+            val adapter2 = MoviesAdapter(moviesTopRated,genres)
+            binding.rvMovies2.adapter = adapter2
 
-                binding.rvMovies2.layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            binding.rvMovies2.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
 
-                binding.rvMovies3.layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        viewModel.moviesUpcoming.observe(viewLifecycleOwner) { moviesUpcoming ->
+            val adapter3 = MoviesAdapter(moviesUpcoming,genres)
+            binding.rvMovies3.adapter = adapter3
 
-                binding.rvMovies4.layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            binding.rvMovies3.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-                binding.clMovies.visibility = View.VISIBLE
-                binding.pbMovies.visibility = View.GONE
-
-            }
+            binding.clMovies.visibility = View.VISIBLE
+            binding.pbMovies.visibility = View.GONE
         }
     }
 }

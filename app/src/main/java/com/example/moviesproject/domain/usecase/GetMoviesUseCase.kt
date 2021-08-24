@@ -7,6 +7,10 @@ interface GetMoviesUseCase {
 
     suspend fun getMovies (): List<Movie>
 
+    suspend fun getMoviesTopRated (): List<Movie>
+
+    suspend fun getMoviesUpcoming (): List<Movie>
+
     suspend fun getGenres (): List<Genre>
 
 }
